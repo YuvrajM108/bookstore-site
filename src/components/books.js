@@ -1,5 +1,4 @@
-import React from "react";
-import BookForm from "./createNewBook";
+import BookForm from './createNewBook';
 
 const Books = () => (
   <main className="catalog">

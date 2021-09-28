@@ -2,8 +2,8 @@ const BookForm = () => (
   <div className="form-section">
     <h3>ADD NEW BOOK</h3>
     <form className="new-book-form">
-      <input className="new-book-field" placeholder="Book title"></input>
-      <input className="new-book-field" placeholder="Book author"></input>
+      <input className="new-book-field" placeholder="Book title" />
+      <input className="new-book-field" placeholder="Book author" />
       <select className="new-book-field" placeholder="Category">
         <option value="tragedy">Tragedy</option>
         <option value="fiction">Fiction</option>
