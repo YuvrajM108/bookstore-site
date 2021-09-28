@@ -5,7 +5,8 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Books from "./redux/books/books";
+import Books from "./components/books";
+import Categories from "./components/categories";
 import './App.css';
 
 function App() {
@@ -13,16 +14,21 @@ function App() {
     <div className="App">
       <Router>
         <nav className="navbar">
+          <div className="nav-elements">
           <h1>Bookstore</h1>
-          <Link to="/books">BOOKS</Link>
-          <Link to="/categories">CATEGORIES</Link>
+          <Link to="/books" className="navlink">BOOKS</Link>
+          <Link to="/categories" className="navlink">CATEGORIES</Link>
+          </div>
         </nav>
         <Switch>
-          <Route path="/">
+          <Route exact path="/">
             <Books />
           </Route>
           <Route path="/books">
             <Books />
+          </Route>
+          <Route path="/categories">
+            <Categories />
           </Route>
         </Switch>
       </Router>
