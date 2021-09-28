@@ -11,3 +11,5 @@ const Books = () => (
     </div>
   </main>
 );
+
+export default Books;
