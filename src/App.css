@@ -56,3 +56,29 @@ nav.navbar {
   justify-content: center;
   align-items: center;
 }
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 75%;
+}
+
+form.new-book-form {
+  display: flex;
+  justify-content: center;
+}
+
+input.new-book-field {
+  margin: 0 10px 0 10px;
+}
+
+button.submit-book {
+  margin: 0 10px 0 10px;
+}
+
+main.catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

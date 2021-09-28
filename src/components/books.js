@@ -1,3 +1,6 @@
+import React from "react";
+import BookForm from "./createNewBook";
+
 const Books = () => (
   <main className="catalog">
     <div className="item">
@@ -24,6 +27,7 @@ const Books = () => (
         <button type="button">UPDATE PROGRESS</button>
       </div>
     </div>
+    <BookForm />
   </main>
 );
 
