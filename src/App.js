@@ -20,17 +20,17 @@ function App() {
             <Link to="/categories" className="navlink">CATEGORIES</Link>
           </div>
         </nav>
-          <Switch>
-            <Route exact path="/">
-              <Books />
-            </Route>
-            <Route path="/books">
-              <Books />
-            </Route>
-            <Route path="/categories">
-              <Categories />
-            </Route>
-          </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Books />
+          </Route>
+          <Route path="/books">
+            <Books />
+          </Route>
+          <Route path="/categories">
+            <Categories />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );

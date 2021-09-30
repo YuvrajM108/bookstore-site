@@ -11,10 +11,11 @@ const Books = () => {
   const [bookList, setBookList] = useState(store.getState().booksReducer);
 
   const submitBook = (book) => {
-    const newBook = { id: uuidv4(),
+    const newBook = {
+      id: uuidv4(),
       title: book.title,
       author: book.author,
-      genre: book.genre
+      genre: book.genre,
     };
     dispatch(addBook(newBook));
     setBookList((prevState) => [...prevState, newBook]);
@@ -26,12 +27,14 @@ const Books = () => {
     setBookList(newBook);
   };
 
-  return(<main className="catalog">
-    <div>
-    {bookList.map((book) => (<Book key={book.id} title={book.title} author={book.author} genre={book.genre} removeBookFunc={() => {deleteBook(book)}} />))}
-    </div>
-    <BookForm submitBookFunc={submitBook} />
-  </main>
+  return (
+    <main className="catalog">
+      <div>
+        { bookList.map((book) => (<Book key={book.id} title={book.title} author={book.author}
+        genre={book.genre} removeBookFunc={() => {deleteBook(book)}} />)) };
+      </div>
+      <BookForm submitBookFunc={submitBook} />
+    </main>
   );
 };
 
