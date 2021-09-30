@@ -31,9 +31,9 @@ const BookForm = ({
     <div className="form-section">
       <h3>ADD NEW BOOK</h3>
       <form className="new-book-form" onSubmit={addBook}>
-        <input className="new-book-field" placeholder="Book title" ref={(el) => {valRef.current[0] = el}} />
-        <input className="new-book-field" placeholder="Book author" ref={(el) => {valRef.current[1] = el}} />
-        <input className="new-book-field" placeholder="Book genre" ref={(el) => {valRef.current[2] = el}} />
+        <input className="new-book-field" placeholder="Book title" ref={(el) => { valRef.current[0] = el; }} />
+        <input className="new-book-field" placeholder="Book author" ref={(el) => { valRef.current[1] = el; }} />
+        <input className="new-book-field" placeholder="Book genre" ref={(el) => { valRef.current[2] = el; }} />
         <button type="submit" className="submit-book">ADD BOOK</button>
       </form>
     </div>
