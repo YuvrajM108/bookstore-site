@@ -1,33 +1,38 @@
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import BookForm from './createNewBook';
+import Book from './book';
+import { addBook, removeBook } from '../redux/books/books';
+import store from '../redux/configureStore';
 
-const Books = () => (
-  <main className="catalog">
-    <div className="item">
-      <div className="item-left">
-        <div className="book-details">
-          <h5 className="book-genre">TRAGEDY</h5>
-          <h2 className="book-title">Macbeth</h2>
-          <h3 className="book-author">William Shakespeare</h3>
-        </div>
-        <div className="book-links">
-          <a className="book-link" href="/#">Comments</a>
-          <a className="book-link" href="/#">Remove</a>
-          <a className="book-link" href="/#">Edit</a>
-        </div>
-      </div>
-      <div className="book-progress">
-        <h1 className>60%</h1>
-      </div>
-      <div className="item-right">
-        <div className="chapter-details">
-          <div className="chapter-heading">CURRENT CHAPTER</div>
-          <div className="chapeter-name">Chapter 3</div>
-        </div>
-        <button type="button">UPDATE PROGRESS</button>
-      </div>
+const Books = () => {
+  const dispatch = useDispatch();
+  const [bookList, setBookList] = useState(store.getState().booksReducer);
+
+  const submitBook = (book) => {
+    const newBook = { id: uuidv4(),
+      title: book.title,
+      author: book.author,
+      genre: book.genre
+    };
+    dispatch(addBook(newBook));
+    setBookList((prevState) => [...prevState, newBook]);
+  };
+
+  const deleteBook = (book) => {
+    dispatch(removeBook(book));
+    const newBook = bookList.filter((item) => item.id !== book.id);
+    setBookList(newBook);
+  };
+
+  return(<main className="catalog">
+    <div>
+    {bookList.map((book) => (<Book key={book.id} title={book.title} author={book.author} genre={book.genre} removeBookFunc={() => {deleteBook(book)}} />))}
     </div>
-    <BookForm />
+    <BookForm submitBookFunc={submitBook} />
   </main>
-);
+  );
+};
 
 export default Books;
