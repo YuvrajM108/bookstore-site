@@ -20,63 +20,44 @@ export const addBook = (book) => async (dispatch) => {
       type: ADD_BOOK,
       book,
     });
-    console.log('Successful');
   }
 };
 
-
 export const removeBook = (bookId) => async (dispatch) => {
-    const res = await axios.delete(`${requestURL}/${bookId}`);
-    const resposeData = await res.data;
-    if (resposeData) {
-      dispatch({
-        type: REMOVE_BOOK,
-        bookId,
-      });
-    }
+  const res = await axios.delete(`${requestURL}/${bookId}`);
+  const resposeData = await res.data;
+  if (resposeData) {
+    dispatch({
+      type: REMOVE_BOOK,
+      bookId,
+    });
+  }
 };
 
-// export const fetchApp = () => {
-//     axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/')
-//       .then(response => console.log(response.data));
-// };
-
-
-const fetchBooksSuccess = (books) => {
-  return {
+const fetchBooksSuccess = (books) => ({
     type: FETCH_BOOKS_SUCCESS,
     payload: books,
-  };
-};
+});
 
 export const fetchBooks = () => async (dispatch) => {
-    //dispatch(fetchBooksRequest);
-    const res = await axios.get(requestURL);
-    const resposeData = res.data;
-    if (resposeData) {
-      const bookArr = Object.entries(resposeData);
-      const arrayOfBooks = [];
-      bookArr.forEach(([key, value]) => {
-        const listItem = { ...value, item_id: key };
-        const listObj = Object.values(listItem);
-        arrayOfBooks.push({ ...listObj[0], item_id: listObj[1] });
-      });
-      dispatch(fetchBooksSuccess(arrayOfBooks));
-    }
-    // .then(response => {
-    //     const books = response.data;
-    //     dispatch(fetchBooksSuccess(books));
-    //   })
-    //   .catch(error => {
-    //     const errMsg = error.message;
-    //     dispatch(fetchBooksFailure(errMsg));
-    //   })
+  const res = await axios.get(requestURL);
+  const resposeData = res.data;
+  if (resposeData) {
+    const bookArr = Object.entries(resposeData);
+    const arrayOfBooks = [];
+    bookArr.forEach(([key, value]) => {
+      const listItem = { ...value, item_id: key };
+      const listObj = Object.values(listItem);
+      arrayOfBooks.push({ ...listObj[0], item_id: listObj[1] });
+    });
+    dispatch(fetchBooksSuccess(arrayOfBooks));
+  }
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_BOOK:
-      return [ ...state, action.book ];
+      return [...state, action.book];
     case REMOVE_BOOK:
       return state.filter((book) => book.item_id !== action.bookId);
     case FETCH_BOOKS_SUCCESS:

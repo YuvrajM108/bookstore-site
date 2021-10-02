@@ -17,13 +17,11 @@ const BookForm = ({
     if (valRef.current[0].value && valRef.current[1].value) {
       const newBook = {
         title: valRef.current[0].value,
-        //author: valRef.current[1].value,
         category: valRef.current[1].value,
       };
       submitBookFunc(newBook);
       valRef.current[0].value = '';
       valRef.current[1].value = '';
-      //valRef.current[2].value = '';
     }
   };
 

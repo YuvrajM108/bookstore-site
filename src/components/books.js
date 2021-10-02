@@ -17,12 +17,9 @@ const Books = () => {
     const newBook = {
       item_id: uuidv4(),
       title: book.title,
-      //author: book.author,
       category: book.category,
     };
     dispatch(addBook(newBook));
-    //setBookData((prevState) => prevState.books.concat(newBook));
-    //fetchApp();
   };
 
   const deleteBook = (book) => {
@@ -33,7 +30,8 @@ const Books = () => {
     <main className="catalog">
       <div>
         { bookList.map((book) => (
-          <Book key={bookList.indexOf(book)} title={book.title} category={book.category} removeBookFunc={() => {deleteBook(book)}} />
+          <Book key={bookList.indexOf(book)} title={book.title}
+          category={book.category} removeBookFunc={() => { deleteBook(book); }} />
         )) }
       </div>
       <BookForm submitBookFunc={submitBook} />
