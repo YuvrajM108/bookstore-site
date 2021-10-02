@@ -8,6 +8,7 @@ import {
 import Books from './components/books';
 import Categories from './components/categories';
 import './App.css';
+import userIcon from './images/user.jpg';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Link to="/books" className="navlink">BOOKS</Link>
             <Link to="/categories" className="navlink">CATEGORIES</Link>
           </div>
+          <img src={userIcon} alt="User icon" className="avatar" />
         </nav>
         <Switch>
           <Route exact path="/">

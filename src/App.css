@@ -4,7 +4,8 @@ body {
 
 nav.navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fff;
   margin-bottom: 30px;
 }
@@ -13,7 +14,13 @@ nav.navbar {
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+img.avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
 }
 
 h1.site-title {
@@ -94,6 +101,11 @@ h3.chapter-name {
   font-weight: 200;
 }
 
+.book-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .navlink,
 .book-link {
   margin: 0 8px 0 8px;
@@ -101,9 +113,12 @@ h3.chapter-name {
 
 button.book-link {
   color: #0290ff;
-  border-color: #0290ff;
-  border-width: 1px;
+  border: none;
   background-color: white;
+}
+
+p.link-separator {
+  color: lightgray;
 }
 
 button.update-progress,
