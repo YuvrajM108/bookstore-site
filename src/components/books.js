@@ -28,7 +28,6 @@ const Books = () => {
 
   return (
     <main className="catalog">
-      <div>
         { bookList.map((book) => (
           <Book
             key={bookList.indexOf(book)}
@@ -37,7 +36,6 @@ const Books = () => {
             removeBookFunc={() => { deleteBook(book); }}
           />
         )) }
-      </div>
       <BookForm submitBookFunc={submitBook} />
     </main>
   );

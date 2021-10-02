@@ -15,7 +15,7 @@ function App() {
       <Router>
         <nav className="navbar">
           <div className="nav-elements">
-            <h1>Bookstore</h1>
+            <h1 className="site-title">Bookstore</h1>
             <Link to="/books" className="navlink">BOOKS</Link>
             <Link to="/categories" className="navlink">CATEGORIES</Link>
           </div>

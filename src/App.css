@@ -7,18 +7,36 @@ nav.navbar {
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
+  margin-left: 10px;
+}
+
+h1.site-title {
+  color: #0290ff;
+}
+
+a.navlink {
+  color: rgb(140, 140, 140);
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.navlink :hover {
+  color: black;
 }
 
 .item {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 100%;
 }
 
 .item-left {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  width: 250px;
+  max-width: 250px
 }
 
 .book-details {
@@ -37,6 +55,12 @@ nav.navbar {
 
 .book-progress {
   align-self: center;
+  justify-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  max-width: 250px;
 }
 
 .chapter-details {
@@ -46,13 +70,36 @@ nav.navbar {
   align-items: flex-start;
 }
 
+h4.chapter-heading {
+  color:rgb(140, 140, 140);
+  font-weight: 200;
+}
+
+h3.chapter-name {
+  font-size: 20px;
+  font-weight: 200;
+}
+
 .navlink,
 .book-link {
   margin: 0 8px 0 8px;
 }
 
-.book-link :hover {
-  cursor: pointer;
+button.book-link {
+  color: #0290ff;
+  border-color: #0290ff;
+  border-width: 1px;
+  background-color: white;
+}
+
+button.update-progress,
+.submit-book {
+  background-color: #0290ff;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 5px 15px 5px 15px;
 }
 
 .categories-content {
@@ -70,15 +117,27 @@ nav.navbar {
 
 form.new-book-form {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-input.new-book-field {
+.book-title-field,
+.book-category-field {
   margin: 0 10px 0 10px;
+  font-size: 20px;
+}
+
+select.book-category-field {
+  width: 30%;
+}
+
+input.book-title-field {
+  width: 50%;
 }
 
 button.submit-book {
   margin: 0 10px 0 10px;
+  font-size: 16px;
+  width: 20%;
 }
 
 main.catalog {

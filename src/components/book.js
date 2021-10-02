@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import pieChart from '../images/progress.jpg';
 
 const Book = ({
   title,
@@ -17,14 +18,15 @@ const Book = ({
       </div>
     </div>
     <div className="book-progress">
+      <img src={pieChart} width="170px" height="150px" />
       <h1 className="book-percentage">60%</h1>
     </div>
     <div className="item-right">
       <div className="chapter-details">
-        <div className="chapter-heading">CURRENT CHAPTER</div>
-        <div className="chapeter-name">Chapter 3</div>
+        <h4 className="chapter-heading">CURRENT CHAPTER</h4>
+        <h3 className="chapter-name">Chapter 12</h3>
       </div>
-      <button type="button">UPDATE PROGRESS</button>
+      <button type="button" className="update-progress">UPDATE PROGRESS</button>
     </div>
   </div>
 );
