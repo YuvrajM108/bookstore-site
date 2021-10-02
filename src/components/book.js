@@ -13,9 +13,7 @@ const Book = ({
         <h2 className="book-title">{title}</h2>
       </div>
       <div className="book-links">
-        <a className="book-link" href="/#">Comments</a>
-        <p className="book-link" onClick={removeBookFunc}>Remove</p>
-        <a className="book-link" href="/#">Edit</a>
+        <button type="button" className="book-link" onClick={removeBookFunc}>Remove</button>
       </div>
     </div>
     <div className="book-progress">
