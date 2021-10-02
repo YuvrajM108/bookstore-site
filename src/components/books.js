@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import BookForm from './createNewBook';
 import Book from './book';
 import { addBook, removeBook, fetchBooks } from '../redux/books/books';
-import store from '../redux/configureStore';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const [bookData, setBookData] = useState(store.getState().booksReducer);
-  const bookList = bookData.books;
+  const bookList = useSelector((state) => state.booksReducer);
 
   useEffect(() => {
-    fetchBooks();
+    dispatch(fetchBooks());
   }, []);
 
   const submitBook = (book) => {
@@ -23,39 +21,19 @@ const Books = () => {
       category: book.category,
     };
     dispatch(addBook(newBook));
-    setBookData((prevState) => prevState.books.concat(newBook));
+    //setBookData((prevState) => prevState.books.concat(newBook));
     //fetchApp();
   };
 
   const deleteBook = (book) => {
-    dispatch(removeBook(book));
-    const newBook = bookList.filter((item) => item.item_id !== book.item_id);
-    setBookData({
-      loading: false,
-      books: newBook,
-      error: '',
-    });
+    dispatch(removeBook(book.item_id));
   };
 
-  return bookData.loading ? (
-    <h2>Loading Books...</h2>
-  ) : bookData.error ? (
-    <h2>{bookData.error}</h2>
-  ) : (
+  return (
     <main className="catalog">
       <div>
-        { bookData &&
-          bookData.books &&
-          bookData.books.map((book) => (
-          <Book
-            key={book.id}
-            title={book.title}
-            author={book.author}
-            genre={book.genre}
-            removeBookFunc={() => {
-              deleteBook(book);
-            }}
-          />
+        { bookList.map((book) => (
+          <Book key={bookList.indexOf(book)} title={book.title} category={book.category} removeBookFunc={() => {deleteBook(book)}} />
         )) }
       </div>
       <BookForm submitBookFunc={submitBook} />
@@ -63,4 +41,4 @@ const Books = () => {
   );
 };
 
-export default connect(null, { addBook })(Books);
+export default connect(null, { addBook, removeBook })(Books);
