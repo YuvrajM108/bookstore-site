@@ -1,6 +1,12 @@
+body {
+  background-color: #fafafa;
+}
+
 nav.navbar {
   display: flex;
   justify-content: flex-start;
+  background-color: #ffffff;
+  margin-bottom: 30px;
 }
 
 .nav-elements {
@@ -28,7 +34,10 @@ a.navlink {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  width: 100%;
+  width: 80%;
+  background-color: #ffffff;
+  margin: 10px 0 10px 0;
+  padding-bottom: 15px;
 }
 
 .item-left {
@@ -61,6 +70,11 @@ a.navlink {
   align-items: center;
   width: 250px;
   max-width: 250px;
+}
+
+img.progress-chart {
+  width: 120px;
+  height: 100px;
 }
 
 .chapter-details {
@@ -113,6 +127,8 @@ button.update-progress,
   flex-direction: column;
   justify-content: flex-start;
   width: 75%;
+  margin-bottom: 40px;
+  border-top: 1px solid lightgray;
 }
 
 form.new-book-form {

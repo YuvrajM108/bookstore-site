@@ -18,8 +18,11 @@ const Book = ({
       </div>
     </div>
     <div className="book-progress">
-      <img src={pieChart} alt="Progress Chart" width="170px" height="150px" />
-      <h1 className="book-percentage">60%</h1>
+      <img src={pieChart} alt="Progress Chart" className="progress-chart" />
+      <div className="book-percentage">
+        <h1 className="progress number">60%</h1>
+        <h3>Completed</h3>
+      </div>
     </div>
     <div className="item-right">
       <div className="chapter-details">
