@@ -1,24 +1,58 @@
+body {
+  background-color: #fafafa;
+}
+
 nav.navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  margin-bottom: 30px;
 }
 
 .nav-elements {
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
+  margin-left: 20px;
+}
+
+img.avatar {
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+}
+
+h1.site-title {
+  color: #0290ff;
+}
+
+a.navlink {
+  color: rgb(140, 140, 140);
+  text-decoration: none;
+  margin-left: 15px;
+}
+
+.navlink :hover {
+  color: black;
 }
 
 .item {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  width: 80%;
+  background-color: #fff;
+  margin: 10px 0 10px 0;
+  padding-bottom: 15px;
 }
 
 .item-left {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  width: 250px;
+  max-width: 250px;
 }
 
 .book-details {
@@ -37,6 +71,17 @@ nav.navbar {
 
 .book-progress {
   align-self: center;
+  justify-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 250px;
+  max-width: 250px;
+}
+
+img.progress-chart {
+  width: 120px;
+  height: 100px;
 }
 
 .chapter-details {
@@ -46,13 +91,44 @@ nav.navbar {
   align-items: flex-start;
 }
 
+h4.chapter-heading {
+  color: rgb(140, 140, 140);
+  font-weight: 200;
+}
+
+h3.chapter-name {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+.book-links {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .navlink,
 .book-link {
   margin: 0 8px 0 8px;
 }
 
-.book-link :hover {
-  cursor: pointer;
+button.book-link {
+  color: #0290ff;
+  border: none;
+  background-color: white;
+}
+
+p.link-separator {
+  color: lightgray;
+}
+
+button.update-progress,
+.submit-book {
+  background-color: #0290ff;
+  font-size: 16px;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  padding: 5px 15px 5px 15px;
 }
 
 .categories-content {
@@ -66,19 +142,33 @@ nav.navbar {
   flex-direction: column;
   justify-content: flex-start;
   width: 75%;
+  margin-bottom: 40px;
+  border-top: 1px solid lightgray;
 }
 
 form.new-book-form {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
 }
 
-input.new-book-field {
+.book-title-field,
+.book-category-field {
   margin: 0 10px 0 10px;
+  font-size: 20px;
+}
+
+select.book-category-field {
+  width: 30%;
+}
+
+input.book-title-field {
+  width: 50%;
 }
 
 button.submit-book {
   margin: 0 10px 0 10px;
+  font-size: 16px;
+  width: 20%;
 }
 
 main.catalog {

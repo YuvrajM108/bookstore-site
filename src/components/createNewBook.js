@@ -29,8 +29,8 @@ const BookForm = ({
     <div className="form-section">
       <h3>ADD NEW BOOK</h3>
       <form className="new-book-form" onSubmit={addBook}>
-        <input className="new-book-field" placeholder="Book title" ref={(el) => { valRef.current[0] = el; }} />
-        <select className="new-book-field" defaultValue="Category" ref={(el) => { valRef.current[1] = el; }}>
+        <input className="book-title-field" placeholder="Book title" ref={(el) => { valRef.current[0] = el; }} />
+        <select className="book-category-field" defaultValue="Category" ref={(el) => { valRef.current[1] = el; }}>
           <option>Fantasy</option>
           <option>Science Fiction</option>
           <option>Poetry</option>

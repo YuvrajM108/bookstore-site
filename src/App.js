@@ -8,6 +8,7 @@ import {
 import Books from './components/books';
 import Categories from './components/categories';
 import './App.css';
+import userIcon from './images/user.jpg';
 
 function App() {
   return (
@@ -15,10 +16,11 @@ function App() {
       <Router>
         <nav className="navbar">
           <div className="nav-elements">
-            <h1>Bookstore</h1>
+            <h1 className="site-title">Bookstore</h1>
             <Link to="/books" className="navlink">BOOKS</Link>
             <Link to="/categories" className="navlink">CATEGORIES</Link>
           </div>
+          <img src={userIcon} alt="User icon" className="avatar" />
         </nav>
         <Switch>
           <Route exact path="/">

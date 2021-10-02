@@ -4,6 +4,8 @@
 
 > In this project I use React, Redux, and JSX to design a single-page application that allows users to view books in an API, add books to the API, and remove books from the API.
 
+![Screenshot](./docs/screenshot.PNG)
+
 ## Built With
 
 - React
