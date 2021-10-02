@@ -30,8 +30,12 @@ const Books = () => {
     <main className="catalog">
       <div>
         { bookList.map((book) => (
-          <Book key={bookList.indexOf(book)} title={book.title}
-          category={book.category} removeBookFunc={() => { deleteBook(book); }} />
+          <Book
+            key={bookList.indexOf(book)}
+            title={book.title}
+            category={book.category}
+            removeBookFunc={() => { deleteBook(book); }}
+          />
         )) }
       </div>
       <BookForm submitBookFunc={submitBook} />

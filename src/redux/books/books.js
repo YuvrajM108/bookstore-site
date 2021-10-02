@@ -35,8 +35,8 @@ export const removeBook = (bookId) => async (dispatch) => {
 };
 
 const fetchBooksSuccess = (books) => ({
-    type: FETCH_BOOKS_SUCCESS,
-    payload: books,
+  type: FETCH_BOOKS_SUCCESS,
+  payload: books,
 });
 
 export const fetchBooks = () => async (dispatch) => {
