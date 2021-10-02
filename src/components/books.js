@@ -28,14 +28,14 @@ const Books = () => {
 
   return (
     <main className="catalog">
-        { bookList.map((book) => (
-          <Book
-            key={bookList.indexOf(book)}
-            title={book.title}
-            category={book.category}
-            removeBookFunc={() => { deleteBook(book); }}
-          />
-        )) }
+      { bookList.map((book) => (
+        <Book
+          key={bookList.indexOf(book)}
+          title={book.title}
+          category={book.category}
+          removeBookFunc={() => { deleteBook(book); }}
+        />
+      )) }
       <BookForm submitBookFunc={submitBook} />
     </main>
   );
