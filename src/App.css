@@ -51,6 +51,10 @@ nav.navbar {
   margin: 0 8px 0 8px;
 }
 
+.book-link :hover {
+  cursor: pointer;
+}
+
 .categories-content {
   display: flex;
   justify-content: center;

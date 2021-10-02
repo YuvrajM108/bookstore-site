@@ -1,30 +1,29 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, connect, useSelector } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import BookForm from './createNewBook';
 import Book from './book';
-import { addBook, removeBook } from '../redux/books/books';
-import store from '../redux/configureStore';
+import { addBook, removeBook, fetchBooks } from '../redux/books/books';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const [bookList, setBookList] = useState(store.getState().booksReducer);
+  const bookList = useSelector((state) => state.booksReducer);
+
+  useEffect(() => {
+    dispatch(fetchBooks());
+  }, []);
 
   const submitBook = (book) => {
     const newBook = {
-      id: uuidv4(),
+      item_id: uuidv4(),
       title: book.title,
-      author: book.author,
-      genre: book.genre,
+      category: book.category,
     };
     dispatch(addBook(newBook));
-    setBookList((prevState) => [...prevState, newBook]);
   };
 
   const deleteBook = (book) => {
-    dispatch(removeBook(book));
-    const newBook = bookList.filter((item) => item.id !== book.id);
-    setBookList(newBook);
+    dispatch(removeBook(book.item_id));
   };
 
   return (
@@ -32,13 +31,10 @@ const Books = () => {
       <div>
         { bookList.map((book) => (
           <Book
-            key={book.id}
+            key={bookList.indexOf(book)}
             title={book.title}
-            author={book.author}
-            genre={book.genre}
-            removeBookFunc={() => {
-              deleteBook(book);
-            }}
+            category={book.category}
+            removeBookFunc={() => { deleteBook(book); }}
           />
         )) }
       </div>
@@ -47,4 +43,4 @@ const Books = () => {
   );
 };
 
-export default Books;
+export default connect(null, { addBook, removeBook })(Books);
