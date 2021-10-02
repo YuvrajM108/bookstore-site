@@ -51,8 +51,7 @@ nav.navbar {
   margin: 0 8px 0 8px;
 }
 
-.book-link
-:hover {
+.book-link :hover {
   cursor: pointer;
 }
 
